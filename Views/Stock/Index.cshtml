@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MyMvcApp.Models.StockViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>種類</th>
+            <th>名稱</th>
+            <th>狀態</th>
+            <th>使用者</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.type</td>
+                <td>@item.name</td>
+                <td>@item.status</td>
+                <td>@item.owner</td>
+            </tr>
+        }
+    </tbody>
+</table>

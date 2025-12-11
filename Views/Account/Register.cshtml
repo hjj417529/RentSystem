@@ -1,0 +1,46 @@
+@model MyMvcApp.Models.AccountViewModel
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card p-4 shadow" style="width: 350px;">
+            <h3 class="text-center mb-4">Register</h3>
+
+            <form asp-controller="Account" asp-action="Register" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" required />
+                </div>
+
+                @if (ViewBag.Error == "這個 Email 已經註冊過了")
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+
+
+
+                <div class="mb-3">
+                    <label class="form-label">密碼</label>
+                    <input type="password" class="form-control" name="password" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">確認密碼</label>
+                    <input type="password" class="form-control" name="confirmpassword" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">用戶名</label>
+                    <input type="text" class="form-control" name="name" required />
+                </div>
+                
+                @if (ViewBag.Error == "密碼與確認密碼不一致")
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+
+
+
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+
+            </form>
+        </div>
+    </div>

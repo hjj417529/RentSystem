@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http
+
+<ul class="navbar-nav">
+
+    <li class="nav-item">
+        @if (!string.IsNullOrEmpty(Context.Session.GetString("UserName")))
+        {
+            <a class="nav-link text-dark">Hi! @Context.Session.GetString("UserName")</a>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <a class="nav-link text-dark">未登入</a>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+
+
+    }
+    </li>
+
+
+
+
+
+
+</ul>
